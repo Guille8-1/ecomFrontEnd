@@ -1,0 +1,42 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+main {
+    position: relative;
+    z-index: 0;
+}
+.headerContent {
+    width: 100%;
+    height: 65px;
+
+    gap: 20px;
+    padding-right: 20px;
+    
+    background: #f5f5f5;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    
+    position: fixed;
+    z-index: 1;
+}
+
+.sidepanel-styles {
+    position: fixed;
+    padding-top: 65px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    z-index: 1;
+}
+.outlet-style {
+    padding: 74px 15px 15px 50px;
+    z-index: 0;
+}

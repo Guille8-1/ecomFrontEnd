@@ -1,0 +1,50 @@
+.title-component {
+    position: relative;
+    z-index: 1;
+}
+.title-component h3 {
+    font-size: x-large;
+    padding-top: 20px;
+    padding-left: 30px;
+}
+.action-buttons {
+    padding-top: 20px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+}
+.action-buttons button {
+    cursor: pointer;
+    padding: 10px;
+    
+    border-style: none;
+    font-size: 14px;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+}
+.tabla-inventario {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    padding: 30px;
+    width: 100%;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.MuiPaper-root {
+    padding: 10px;    
+}
+
+/* dialog adding SKU */

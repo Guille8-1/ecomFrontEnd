@@ -1,0 +1,32 @@
+.first-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    gap: 20px;
+    padding-top: 110px;
+}
+.third-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    gap: 20px;
+    padding-top: 3px;
+}
+
+.action-button {
+    margin: 0 auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
