@@ -1,11 +1,15 @@
 export interface addSkuForm {
-    sku: string,
+    sku: string;
     upc: number,
     descripcion: string,
     costo: number,
     precio: number,
     proveedor: string,
     peso: number,
-    tags: string,
-    image: HTMLImageElement
-}   
+    tags: string;
+}
+
+export interface FieldError {
+    type?: string;
+    message?: string;
+}

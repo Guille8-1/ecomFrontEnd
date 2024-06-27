@@ -4,7 +4,22 @@
     align-items: center;
     
     gap: 20px;
-    padding-top: 110px;
+    padding-top: 10px;
+    .error-columns {
+      display: flex;
+      flex-direction: column;
+    }
+    div {
+      width: 210px;
+    }
+}
+.second-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  gap: 20px;
+  padding-top: 10px;
 }
 .third-section {
     display: flex;
@@ -19,6 +34,10 @@
     margin: 0 auto;
 }
 
+form {
+  margin-top: 40px;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -29,4 +48,10 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
+}
+
+p {
+  color: red;
+  padding-top: 0;
+  margin: 0;
 }
