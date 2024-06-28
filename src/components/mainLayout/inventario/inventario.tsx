@@ -45,7 +45,7 @@ export default function Inventario() {
                     <div className="action-buttons">
                         <Button color='primary' variant='contained' role='Button' onClick={dialogSKUOpen}>
                             <svg className="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" d="M5 12h14m-7 7V5"/>
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" d="M5 12h14m-7 7V5"/>
                             </svg>SKU
                         </Button>
                         {/* HTML para el dialog agregar SKU */}
@@ -57,7 +57,7 @@ export default function Inventario() {
                         </Button>
                         <Button color='primary' variant='contained' role='Button'>
                             <svg className="w-[20px] h-[20px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01"/>
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.9" d="M5 12h14m-7 7V5"/>
                             </svg>Reposiciones
                         </Button>
                     </div>

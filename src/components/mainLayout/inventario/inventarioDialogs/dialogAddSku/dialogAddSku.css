@@ -9,9 +9,7 @@
       display: flex;
       flex-direction: column;
     }
-    div {
-      width: 210px;
-    }
+    
 }
 .second-section {
   display: flex;
@@ -20,6 +18,7 @@
   
   gap: 20px;
   padding-top: 10px;
+
 }
 .third-section {
     display: flex;
@@ -27,7 +26,12 @@
     align-items: center;
     
     gap: 20px;
-    padding-top: 3px;
+    padding-top: 10px;
+}
+
+.fourth-section {
+  gap: 20px;
+  padding-top: 10px;
 }
 
 .action-button {
@@ -48,10 +52,4 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
-}
-
-p {
-  color: red;
-  padding-top: 0;
-  margin: 0;
 }

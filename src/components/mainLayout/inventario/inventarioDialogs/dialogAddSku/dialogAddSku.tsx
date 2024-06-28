@@ -1,7 +1,6 @@
 //import * as React from 'react';
-
 //react-hook-form functions
-import { useForm, Resolver, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 //material UI functions
 import { 
             Dialog,
@@ -11,60 +10,24 @@ import {
             DialogActions,
             DialogContent,
             Typography,
+            InputAdornment,
         } from '@mui/material';
-//import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 //Interfaces para las funciones y formularios del Dialog        
 import { addSkuProps } from '../../inventoryTypes/inventoryTypes';
-import { addSkuForm, FieldError } from '../../inventoryTypes/addSkuForm';
+import { addSkuForm } from '../../inventoryTypes/addSkuForm';
 
-// import DialogForm from './dialogContet'
+// validation funcion
+import validateResolver from './dialogValidations';
+//image upload function
+import ImageUpload from './uploadImage';
 
 //CSS para los HTML tags
 import './dialogAddSku.css'
 
-
-
-
-const validateResolver: Resolver<addSkuForm> = async (values) => {
-    
-    const errors: Record<string, FieldError> = {};
-
-    if (!values.sku) {
-        errors.sku = {
-          type: "required",
-          message: "This is required.",
-        };
-      } else {
-        if (values.sku.length < 8) {
-          errors.sku = {
-            type: "minLength",
-            message: "SKU especifico",
-          };
-        } else if (!/^[A-Za-z]+$/.test(values.sku)) {
-          errors.sku = {
-            type: "pattern",
-            message: "no espacios",
-          };
-        }
-      }
-
-    return {
-        values: Object.keys(errors).length === 0 ? values : {},
-        errors,
-    };
-}
-
-
 //componenet principal del dialogo para crear un nuevo SKU
 export default function SkuAddDialog (props: addSkuProps) {
-    const { open, closingDialog } = props;
-
-    // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     const file = event.target.files?.[0];
-    //     if (file) {
-    //       console.info('Selected file:', file);
-    //     }
-    //   };
+    
+    const {open, closingDialog} = props;
 
     const {register, handleSubmit, formState: { errors }} = useForm<addSkuForm>({
         resolver: validateResolver
@@ -102,22 +65,117 @@ export default function SkuAddDialog (props: addSkuProps) {
                                 paddingTop: '90px',
                                 gap: '20px',
                                 width: 'auto',
-                                height: '100px'
+                                height: '100px',
+                                paddingY:'100px'
                             }}
-                    >
+                        >
                         <div className='first-section'>
                             {/*SKU controller */}
                             <div className='erros-colums'>
-                                <TextField 
-                                    label="sku"
+                                <TextField
+                                    sx={{
+                                        width:'200px'
+                                    }} 
+                                    label="SKU"
                                     {...register('sku')}
                                     error={!!errors.sku}
                                     helperText={errors.sku?.message}
                                 />
                             </div>
+                            <div className='erros-colums'>
+                                <TextField
+                                    sx={{
+                                        width:'200px'
+                                    }}
+                                    label="UPC (Serial)"
+                                    type='number'
+                                    {...register('upc')}
+                                    error={!!errors.upc}
+                                    helperText={errors.upc?.message}
+                                />
+                            </div>
+                            <div className='erros-colums'>
+                                <TextField
+                                    sx={{
+                                        width:'200px'
+                                    }}
+                                    label="Costo"
+                                    type='number'
+                                    InputLabelProps={{ shrink: true }}
+                                    {...register('costo')}
+                                    error={!!errors.costo}
+                                    helperText={errors.costo?.message}
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'>$</InputAdornment>
+                                    }}
+                                />
+                            </div>
+                            <div className='erros-colums'>
+                                <TextField
+                                    label="Precio"
+                                    type='number'
+                                    InputLabelProps={{ shrink: true }}
+                                    {...register('precio')}
+                                    error={!!errors.precio}
+                                    helperText={errors.precio?.message}
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'>$</InputAdornment>
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        <div className='second-section'>
+                            <div className='erros-colums'>
+                                <TextField
+                                    sx={{
+                                        width: '900px'
+                                    }}
+                                    label="Descripcion"
+                                    type='text'
+                                    {...register('descripcion')}
+                                    error={!!errors.descripcion}
+                                    helperText={errors.descripcion?.message}
+                                />
+                            </div>
+                        </div>
+                        <div className="third-section">
+                            <div className='erros-colums'>
+                                <TextField
+                                    label="Proveedor"
+                                    type='text'
+
+                                    {...register('proveedor')}
+                                    error={!!errors.proveedor}
+                                    helperText={errors.proveedor?.message}
+                                />
+                            </div>
+                            <div className='erros-colums'>
+                                <TextField
+                                    label="Peso"
+                                    type='text'
+                                    {...register('tags')}
+                                    error={!!errors.tags}
+                                    helperText={errors.tags?.message}
+                                    InputProps={{
+                                        startAdornment: <InputAdornment position='start'>Kg</InputAdornment>
+                                    }}
+                                />
+                            </div>
+                            <div className='erros-colums'>
+                                <TextField
+                                    label="Tags"
+                                    type='text'
+                                    {...register('tags')}
+                                    error={!!errors.tags}
+                                    helperText={errors.tags?.message}
+                                />
+                            </div>
                         </div>
                     </Box>
                 </form>
+                <div style={{paddingTop:'60px'}}>
+                    <ImageUpload />
+                </div>
                 </DialogContent>
                 <DialogActions>
                     <Button color='error' variant='contained' onClick={closingDialog}>Cancel</Button>

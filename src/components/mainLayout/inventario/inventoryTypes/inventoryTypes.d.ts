@@ -22,8 +22,3 @@ export interface addSkuProps {
     open: boolean;
     closingDialog: () => void;
 }
-export interface FieldError {
-    types?: {
-      [key: string]: string;
-    };
-  }

@@ -1,0 +1,6 @@
+.allowed {
+    display: block;
+}
+.disallowed {
+    display: none;
+}
