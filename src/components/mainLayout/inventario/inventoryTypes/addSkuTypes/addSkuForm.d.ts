@@ -6,7 +6,7 @@ export interface addSkuForm {
     precio: number,
     proveedor: string,
     peso: number,
-    tags: string;
+    etiquetas: string;
 }
 
 export interface FieldError {

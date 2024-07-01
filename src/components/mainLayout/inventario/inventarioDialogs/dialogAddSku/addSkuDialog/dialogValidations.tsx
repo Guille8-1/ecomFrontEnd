@@ -1,5 +1,5 @@
 import { FieldError, Resolver } from "react-hook-form";
-import { addSkuForm } from "../../inventoryTypes/addSkuForm";
+import { addSkuForm } from "../../../inventoryTypes/addSkuTypes/addSkuForm";
 
 
 const validateResolver: Resolver<addSkuForm> = async (values) => {
@@ -73,12 +73,24 @@ const validateResolver: Resolver<addSkuForm> = async (values) => {
             message:'Descripcion especifica'
         }
       }
-
+      const itemPeso:string = values.peso.toString()
+      if(!/^[0-9]+$/.test(itemPeso)) {
+        errors.peso={
+            type:'pattern',
+            message:'No caracteres'
+        }
+      }
       if(values.proveedor.length < 5){
             errors.proveedor ={
                 type: 'minLength',
                 message:'Proveedor Invalido'
             }
+      }
+      if(!/^[a-zA-Z\s]*$/.test(values.etiquetas)){
+          errors.etiquetas = {
+            type:'pattern',
+            message:'Sin caracteres especiales'
+          }
       }
     return {
         values: Object.keys(errors).length === 0 ? values : {},

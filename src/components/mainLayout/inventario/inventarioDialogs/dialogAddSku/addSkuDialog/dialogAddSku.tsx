@@ -1,4 +1,4 @@
-//import * as React from 'react';
+import * as React from 'react'
 //react-hook-form functions
 import { useForm, SubmitHandler } from 'react-hook-form';
 //material UI functions
@@ -13,28 +13,38 @@ import {
             InputAdornment,
         } from '@mui/material';
 //Interfaces para las funciones y formularios del Dialog        
-import { addSkuProps } from '../../inventoryTypes/inventoryTypes';
-import { addSkuForm } from '../../inventoryTypes/addSkuForm';
+import { addSkuProps } from '../../../inventoryTypes/addSkuTypes/inventoryTypes';
+import { addSkuForm } from '../../../inventoryTypes/addSkuTypes/addSkuForm';
 
-// validation funcion
+// validation funcions
 import validateResolver from './dialogValidations';
+
 //image upload function
 import ImageUpload from './uploadImage';
 
 //CSS para los HTML tags
-import './dialogAddSku.css'
+import './dialogAddSku.css';
 
 //componenet principal del dialogo para crear un nuevo SKU
 export default function SkuAddDialog (props: addSkuProps) {
-    
     const {open, closingDialog} = props;
-
+    
     const {register, handleSubmit, formState: { errors }} = useForm<addSkuForm>({
         resolver: validateResolver
     });
+    //Limpiar el formulario despues de crear el SKU
+    const clean = ''
+    const cleanUpForm = () => {
+        const values = document.querySelectorAll('input')
+        values.forEach((values)=>{
+            values.value = clean;
+        })
+    }
 
     const onSubmit:SubmitHandler<addSkuForm> = (addSkuData) => {
         console.info({addSkuData});
+        cleanUpForm();
+        
     }
     return (
         <>
@@ -152,10 +162,10 @@ export default function SkuAddDialog (props: addSkuProps) {
                             <div className='erros-colums'>
                                 <TextField
                                     label="Peso"
-                                    type='text'
-                                    {...register('tags')}
-                                    error={!!errors.tags}
-                                    helperText={errors.tags?.message}
+                                    type='number'
+                                    {...register('peso')}
+                                    error={!!errors.peso}
+                                    helperText={errors.peso?.message}
                                     InputProps={{
                                         startAdornment: <InputAdornment position='start'>Kg</InputAdornment>
                                     }}
@@ -163,11 +173,11 @@ export default function SkuAddDialog (props: addSkuProps) {
                             </div>
                             <div className='erros-colums'>
                                 <TextField
-                                    label="Tags"
+                                    label="Etiquetas"
                                     type='text'
-                                    {...register('tags')}
-                                    error={!!errors.tags}
-                                    helperText={errors.tags?.message}
+                                    {...register('etiquetas')}
+                                    error={!!errors.etiquetas}
+                                    helperText={errors.etiquetas?.message}
                                 />
                             </div>
                         </div>

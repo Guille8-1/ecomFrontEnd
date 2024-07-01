@@ -7,13 +7,13 @@ import {
   type MRT_ColumnDef,
 } from 'material-react-table';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import { dataInventory } from '../../../data/inventarioData';
+import { dataInventory } from '../../../../data/inventarioData';
 import { Edit, Delete} from '@mui/icons-material';
 import { Box } from '@mui/material';
 import Button from '@mui/material/Button'
 import { download, generateCsv, mkConfig } from 'export-to-csv';
-import { Producto } from './inventoryTypes/inventoryTypes';
-import { ProductType as ItemType } from './inventoryTypes/productType';
+import { Producto } from '../inventoryTypes/addSkuTypes/inventoryTypes';
+import { ProductType as ItemType } from '../inventoryTypes/addSkuTypes/productType';
 
 
 //data Imported

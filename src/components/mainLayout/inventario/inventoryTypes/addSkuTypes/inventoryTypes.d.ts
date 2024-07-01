@@ -12,12 +12,9 @@ export interface Producto {
     peso:number;
     fechaExp:string;
   }
-//contact type
-export interface Nombre {
-    nombre: string;
-    apellido: string;
-    apodo:string;
-}
+  
+//open / close fucntions
+
 export interface addSkuProps {
     open: boolean;
     closingDialog: () => void;

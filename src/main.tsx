@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client'
 import App from './components/App.tsx'
 
 import Inicio from './components/mainLayout/inicio/inicioPage.tsx'
-import Inventario from './components/mainLayout/inventario/inventario.tsx'
+import Inventario from './components/mainLayout/inventario/initialView/inventario.tsx'
 import Ventas from './components/mainLayout/ventas/ventas.tsx'
 import Configuracion from './components/mainLayout/configuracion/configuracion.tsx'
 import Reportes from './components/mainLayout/reportes/reportes.tsx'
