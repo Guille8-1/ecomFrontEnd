@@ -1,4 +1,3 @@
-import * as React from 'react'
 //react-hook-form functions
 import { useForm, SubmitHandler } from 'react-hook-form';
 //material UI functions

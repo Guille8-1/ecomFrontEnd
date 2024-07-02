@@ -1,3 +1,5 @@
+//construccion del array de los productos
+
 export const dataInventory = 
 [
     {

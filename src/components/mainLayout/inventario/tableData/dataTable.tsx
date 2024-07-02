@@ -7,7 +7,7 @@ import {
   type MRT_ColumnDef,
 } from 'material-react-table';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import { dataInventory } from '../../../../data/inventarioData';
+import { dataInventory } from './inventarioData';
 import { Edit, Delete} from '@mui/icons-material';
 import { Box } from '@mui/material';
 import Button from '@mui/material/Button'

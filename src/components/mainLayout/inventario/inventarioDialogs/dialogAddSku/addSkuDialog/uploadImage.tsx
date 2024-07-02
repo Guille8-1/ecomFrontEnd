@@ -20,16 +20,14 @@ const ImageUpload = () => {
     const [error, setError] = React.useState<boolean>(false);
     const [imageName, setImageName] =React.useState<string>();
     const [disable, setDisable] = React.useState<boolean>(true)
+    const [icon, setIcon] = React.useState<boolean>(true)
     //export boolean
 
 
-    const space = 'Imagen';
-
-
+    const space = 'Seleccionar';
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0]
-        const fileLenggth = [file]
         if(file){
             setImage(file);
             const reader = new FileReader();
@@ -39,20 +37,18 @@ const ImageUpload = () => {
             const weightImg = file.size/1024;
             Math.ceil(weightImg);
             const mbImage = weightImg/1024;
-            
-            
-            if(mbImage > 2){
+            const fileExtension = /.(jpg|jpeg|png)$/i
+
+            if(mbImage > 2 || !fileExtension.test(file.name) ){
                 setWeight(false);
                 setButton(false);
                 setError(true);
-            }else{
+            }
+            else{
                 setError(true);
                 setWeight(true);
                 setButton(true);
             }
-        }
-        if(fileLenggth.length > 1){
-            
         }
     }
     const handleUpload = () => {
@@ -62,12 +58,14 @@ const ImageUpload = () => {
         if(image) {
             setLoading(true)
             setTimeout(()=>{
+                setIcon(false)
                 setLoading(false)
             },1000)
             console.info(image)
         }else{
             setButton(true)
             setDisable(true)
+
         }
     }
 
@@ -104,7 +102,7 @@ const ImageUpload = () => {
                     color={'primary'}
                     variant='contained'
                     onClick={handleUpload}
-                    startIcon={!loading ? <CheckCircleOutlineIcon/>: <CloudUploadIcon/>}
+                    startIcon={!icon ? <CheckCircleOutlineIcon/>: <CloudUploadIcon/>}
                     loading={loading}
                     disabled={!button}
                     > <span>{button ? 'Subir Imagen':'Imagen OK'}</span>
@@ -121,7 +119,7 @@ const ImageUpload = () => {
                 :
                 <p  className={error?'allowed':'disallowed'} 
                     style={{color:'red', marginTop:'10px'}}>
-                        
+
                     {`${imageName} - Imagen no Permitida`}
                 </p>
             }
@@ -132,7 +130,7 @@ const ImageUpload = () => {
                         fontStyle:'italic',
                         fontWeight:'bold'
                         }}>
-                    Imagen Menor a 2 MB
+                    Imagen Menor a 2 MB. Archivos permitidos jpg, jpeg, png
             </p>
         </>
     )
