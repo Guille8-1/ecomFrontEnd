@@ -7,8 +7,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { Button } from '@mui/material';
 
 //Exporting error Boolean
-
-
 import './uploadImage.css'
 
 const ImageUpload = () => {

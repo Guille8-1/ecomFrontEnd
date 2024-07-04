@@ -43,7 +43,6 @@ export default function SkuAddDialog (props: addSkuProps) {
     const onSubmit:SubmitHandler<addSkuForm> = (addSkuData) => {
         console.info({addSkuData});
         cleanUpForm();
-        
     }
     return (
         <>
@@ -53,8 +52,8 @@ export default function SkuAddDialog (props: addSkuProps) {
                 maxWidth={'lg'}
                 sx={{
                     '& .MuiDialog-paper':{
-                        height:'60vh', 
-                        maxHeight: '60vh',
+                        height:'70wv',
+                        maxHeight: '70wv',
                     }
                 }}
             >

@@ -14,21 +14,12 @@
     flex-direction: row;
     gap: 15px;
 
+    a {
+      color: white;
+      text-decoration: none;
+    }
 }
-.action-buttons button {
-    cursor: pointer;
-    padding: 10px;
-    
-    border-style: none;
-    font-size: 14px;
-    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
 
-    gap: 5px;
-}
 .tabla-inventario {
     display: flex;
     flex-direction: row;
@@ -46,5 +37,3 @@
 .MuiPaper-root {
     padding: 10px;    
 }
-
-/* dialog adding SKU */

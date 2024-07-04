@@ -6,7 +6,7 @@ export type ProductType = {
     costo:number;
     precio:number;
     proveedor:string;
-    etiquetas:string;
+    marca:string;
     descripcion:string;
     peso:number;
     fechaExp:string;

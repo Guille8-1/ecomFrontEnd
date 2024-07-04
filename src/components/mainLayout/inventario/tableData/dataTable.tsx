@@ -8,13 +8,13 @@ import {
 } from 'material-react-table';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { dataInventory } from './inventarioData';
-import { Edit, Delete} from '@mui/icons-material';
+import { Edit, Delete } from '@mui/icons-material';
 import { Box } from '@mui/material';
 import Button from '@mui/material/Button'
 import { download, generateCsv, mkConfig } from 'export-to-csv';
-import { Producto } from '../inventoryTypes/addSkuTypes/inventoryTypes';
-import { ProductType as ItemType } from '../inventoryTypes/addSkuTypes/productType';
 
+import { ProductType as ItemType } from '../inventoryTypes/addSkuTypes/productType';
+import './dataTable.css'
 
 //data Imported
 const data:ItemType[] = dataInventory
@@ -31,8 +31,13 @@ const DataTable = () => {
         download(csvConfig)(csv)
     };
 
-    const columns = React.useMemo<MRT_ColumnDef<Producto>[]>( 
+    const columns = React.useMemo<MRT_ColumnDef<ItemType>[]>( 
         () => [
+            {
+                accessorKey: 'id',
+                header: 'Id',
+                size: 50
+            },
             {
                 accessorKey: 'sku',
                 header: 'SKU',
@@ -46,17 +51,17 @@ const DataTable = () => {
             {
                 accessorKey: 'cantidadDisp',
                 header: 'Cantidad',
-                size: 150
+                size: 5
             },
             {
                 accessorKey: 'costo',
                 header: 'Costo',
-                size: 150
+                size: 5
             },
             {
                 accessorKey: 'precio',
                 header: 'Precio',
-                size: 150
+                size: 5
             },
             {
                 accessorKey: 'proveedor',
@@ -65,8 +70,8 @@ const DataTable = () => {
 
             },
             {
-                accessorKey: 'etiquetas',
-                header: 'Etiquetas',
+                accessorKey: 'marca',
+                header: 'Marca',
                 size: 150
             },
             {
@@ -83,13 +88,13 @@ const DataTable = () => {
             {
                 accessorKey: 'fechaExp',
                 header: 'Fecha Exp',
-                size: 150
+                size: 150,
             },
         ],[],
     );
     const [ rowSelection, setRowSelection ] = React.useState<MRT_RowSelectionState>({});
 
-    const rowsSelected:Producto[] = [];
+    const rowsSelected:ItemType[] = [];
 
     const handleSelectedRows = () => {
         const getRows = table.getSelectedRowModel().rows;
@@ -105,13 +110,13 @@ const DataTable = () => {
         console.info(rowsSelected);
     }
 
-    const descontinueRow = (rowData:Producto[]) => {
+    const descontinueRow = (rowData:ItemType[]) => {
         rowData[0].cantidadDisp === 0 ? 
         console.info(rowData):
         alert('SKU Cantidad Mayor a 0');
     }
 
-    const ediditngRow = (rowData:Producto[]) => {
+    const ediditngRow = (rowData:ItemType[]) => {
         console.info(rowData);
     }
     
@@ -147,7 +152,6 @@ const DataTable = () => {
                             onClick={() => {ediditngRow([row.original])}}
                             table = {table}
                             className='options-table'
-                            
                         />,
                         <MRT_ActionMenuItem
                             icon={<Delete />}

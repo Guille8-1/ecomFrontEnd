@@ -9,6 +9,7 @@ import Inventario from './components/mainLayout/inventario/initialView/inventari
 import Ventas from './components/mainLayout/ventas/ventas.tsx'
 import Configuracion from './components/mainLayout/configuracion/configuracion.tsx'
 import Reportes from './components/mainLayout/reportes/reportes.tsx'
+import {RepleInventario} from './components/mainLayout/inventario/components/repleComponent/inventarioReple.tsx'
 
 import './index.css'
 
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route index element={<Inicio/>} />
           <Route path='ventas' element={<Ventas/>} />
           <Route path='inventario' element={<Inventario/>} />
+            <Route path='replenishment' element={<RepleInventario/>} />
           <Route path='reportes' element={<Reportes/>} />
           <Route path='configuracion' element={<Configuracion/>} />
         </Route>

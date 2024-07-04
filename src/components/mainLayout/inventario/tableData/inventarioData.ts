@@ -1,5 +1,4 @@
 //construccion del array de los productos
-
 export const dataInventory = 
 [
     {
@@ -10,10 +9,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
-        descripcion: 'nuevo producto',
+        marca:'inti',
+        descripcion: 'inti producto',
         peso: 30,
-        fechaExp:'30-11-2024'
+        fechaExp: '',
     },
     {
         id: 2,
@@ -23,10 +22,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'producto para retornar',
         peso: 20,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 3,
@@ -36,10 +35,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'producto daniado',
         peso: 10,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 4,
@@ -49,10 +48,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'producto sobre precio',
         peso: 50,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 5,
@@ -62,10 +61,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'producto por pagar',
         peso: 70,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 6,
@@ -75,10 +74,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'producto por pagar',
         peso: 10,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 7,
@@ -88,10 +87,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'producto por pagar',
         peso: 24,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 8,
@@ -101,10 +100,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'producto por pagar a heinsenberg',
         peso: 240,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 9,
@@ -114,10 +113,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'producto pagado',
         peso: 90,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 10,
@@ -127,10 +126,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'producto agotado',
         peso: 40,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 11,
@@ -140,10 +139,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'producto por reponer',
         peso: 240,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 12,
@@ -153,10 +152,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'Mas vendido',
         peso: 228,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 13,
@@ -166,10 +165,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'Por Cobrar',
         peso: 228,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 14,
@@ -179,10 +178,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'Sobrevendido',
         peso: 228,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 15,
@@ -192,10 +191,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'No vendido',
         peso: 228,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 16,
@@ -205,10 +204,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'Inversion',
         peso: 228,
-        fechaExp:'30-11-2024'
+        fechaExp: '', 
     },
     {
         id: 17,
@@ -218,10 +217,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
-        descripcion: 'Nuevo Producto',
+        marca:'inti',
+        descripcion: 'inti Producto',
         peso: 228,
-        fechaExp:'30-11-2021'
+        fechaExp: '', 
     },
     {
         id: 18,
@@ -231,10 +230,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
-        descripcion: 'Descuento Proximos, para nuevos clientes y para nuevos subscriptores que tengan la tarjeta de descuento del negocio para',
+        marca:'inti',
+        descripcion: 'Descuento Proximos, para intis clientes y para intis subscriptores que tengan la tarjeta de descuento del negocio para',
         peso: 228,
-        fechaExp:'30-11-2022'
+        fechaExp: '', 
     },
     {
         id: 19,
@@ -244,10 +243,10 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
-        descripcion: 'Nuevo Mercado',
+        marca:'inti',
+        descripcion: 'inti Mercado',
         peso: 228,
-        fechaExp:'30-01-2023'
+        fechaExp: '', 
     },
     {
         id: 20,
@@ -257,9 +256,26 @@ export const dataInventory =
         costo:15,
         precio:29,
         proveedor:'fabrica',
-        etiquetas:'nuevo',
+        marca:'inti',
         descripcion: 'Descuentos',
         peso: 228,
-        fechaExp:'30-05-2024'
+        fechaExp: '', 
     },
 ]
+//las fechas van a llegar tipo string. calculo de fechas en el
+const getTodayDate = (): string => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0'); 
+    const day = String(today.getDate()).padStart(2, '0'); 
+  
+    return `${day}-${month}-${year}`;
+  };
+
+const fillUpDate = () => {
+    for(let i = 0; i<dataInventory.length; ++i){
+        dataInventory[i].fechaExp = `${getTodayDate()}`;
+    }
+}
+
+fillUpDate();
