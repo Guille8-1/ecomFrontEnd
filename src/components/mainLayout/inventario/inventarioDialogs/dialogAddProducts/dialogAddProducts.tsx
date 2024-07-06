@@ -54,7 +54,7 @@ export default function AddProductsDialog (props:addProductsProps) {
                 </Typography>
                 <DialogContent dividers>
                     <div className="recomendacion">
-                        <p style={{fontWeight:'bolder'}}>Asegurate de Seleccionar el Archivo correcto.</p>
+                        <p style={{fontWeight:'bolder'}}>Asegurate de Seleccionar el Archivo Correcto a Subir al Sistema.</p>
                     </div>
                     <section className="csv-section">
                             {
@@ -102,20 +102,29 @@ export default function AddProductsDialog (props:addProductsProps) {
                         <section className='title-csv'>
                             <p>
                                 <span>Impotante: </span>
-                                Descargar el modelo adjunto y respetar los campos incluidos. <br /> Si los campos son distintos el sistema rechazara el proceso
+                                Descargar el modelo adjunto y respetar los campos incluidos. <br /> Si los campos son distintos el sistema rechazara el proceso.
                             </p>
                         </section>
-                        <section>
+                        <section style={{
+                            display: 'flex',
+                            flexDirection:'row',
+                            gap:'10px'
+                        }}>
                             <Button onClick={downloadTemplate}>
                                 <img src="public\images\8242984.png" alt="" />
-                                Descargar
+                                Productos Unidad
+                            </Button>
+                            <Button onClick={downloadTemplate}>
+                                <img src="public\images\8242984.png" alt="" />
+                                Productos UDM
                             </Button>
                         </section>
                     </div>
                 </DialogContent>
                 <DialogActions>
-                    <Button color="error" variant="contained" onClick={closingDialog}>Cancelar</Button>
+                    <Button style={{backgroundColor: '#84888E'}} variant="contained" onClick={closingDialog}>Cancelar</Button>
                     <Button 
+                        color='success'
                         variant="contained" 
                         onClick={savingData}
                         disabled={button || validateCSV}

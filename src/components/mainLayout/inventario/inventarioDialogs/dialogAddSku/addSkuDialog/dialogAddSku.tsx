@@ -186,7 +186,7 @@ export default function SkuAddDialog (props: addSkuProps) {
                 </div>
                 </DialogContent>
                 <DialogActions>
-                    <Button color='error' variant='contained' onClick={closingDialog}>Cancel</Button>
+                    <Button style={{backgroundColor: '#84888E'}} variant='contained' onClick={closingDialog}>Cancelar</Button>
                     <Button 
                             type='submit'
                             variant='contained' 

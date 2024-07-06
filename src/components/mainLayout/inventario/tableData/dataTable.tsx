@@ -8,29 +8,33 @@ import {
 } from 'material-react-table';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { dataInventory } from './inventarioData';
-import { Edit, Delete } from '@mui/icons-material';
+import { Edit, Delete, AddBoxOutlined } from '@mui/icons-material';
 import { Box } from '@mui/material';
 import Button from '@mui/material/Button'
 import { download, generateCsv, mkConfig } from 'export-to-csv';
 
 import { ProductType as ItemType } from '../inventoryTypes/addSkuTypes/productType';
 import './dataTable.css'
+//Dialog UOM
 
+import DialogUom from '../inventarioDialogs/addUomDialog/uomDialog';
 //data Imported
 const data:ItemType[] = dataInventory
-
+export interface exportUom {
+    skuName: string
+    currentQty: number
+    expDate:string
+}
 const DataTable = () => {
-    
-    const csvConfig = mkConfig({
-        fieldSeparator: ',',
-        decimalSeparator: '.',
-        useKeysAsHeaders: true
-    })
-    const handleExportData = () => {
-        const csv = generateCsv(csvConfig)(data);
-        download(csvConfig)(csv)
-    };
-
+    const [uom, setOpenUom] = React.useState<boolean>(false);
+    const [uomData, setUomData] = React.useState<exportUom>({skuName:'',currentQty:0,expDate:''})
+    const openingUom = () => {
+        setOpenUom(true)
+    }
+    const closingUom = () =>{
+        setOpenUom(false)
+    }
+    const [ rowSelection, setRowSelection ] = React.useState<MRT_RowSelectionState>({});
     const columns = React.useMemo<MRT_ColumnDef<ItemType>[]>( 
         () => [
             {
@@ -92,7 +96,18 @@ const DataTable = () => {
             },
         ],[],
     );
-    const [ rowSelection, setRowSelection ] = React.useState<MRT_RowSelectionState>({});
+    const csvConfig = mkConfig({
+        fieldSeparator: ',',
+        decimalSeparator: '.',
+        useKeysAsHeaders: true
+    });
+    const handleExportData = () => {
+        const csv = generateCsv(csvConfig)(data);
+        download(csvConfig)(csv)
+    };
+
+    
+    
 
     const rowsSelected:ItemType[] = [];
 
@@ -110,15 +125,27 @@ const DataTable = () => {
         console.info(rowsSelected);
     }
 
-    const descontinueRow = (rowData:ItemType[]) => {
-        rowData[0].cantidadDisp === 0 ? 
+    const descontinueRow = (rowData:ItemType) => {
+        rowData.cantidadDisp === 0 ? 
         console.info(rowData):
         alert('SKU Cantidad Mayor a 0');
     }
 
-    const ediditngRow = (rowData:ItemType[]) => {
+
+    const ediditngRow = (rowData:ItemType) => {
         console.info(rowData);
     }
+    
+    const sendingUomData = (itemRow:ItemType) => {
+        setUomData (
+            {
+                skuName: itemRow.sku,
+                expDate: itemRow.fechaExp,
+                currentQty: itemRow.cantidadDisp
+            }
+        )
+    }
+   
     
     const table = useMaterialReactTable({
                 columns,
@@ -140,8 +167,8 @@ const DataTable = () => {
                 initialState: {
                     density: 'compact',
                     columnPinning:  {
-                                        left: ['mrt-row-expand', 'mrt-row-select'],
-                                        right: ['mrt-row-actions']
+                                        left: ['mrt-row-actions', 'mrt-row-select'],
+                                        right: ['mrt-row-expand' ]
                                     }    
                  },
                 renderRowActionMenuItems:   ({table, row}) => [
@@ -149,15 +176,26 @@ const DataTable = () => {
                             icon = {<Edit />}
                             key = 'edit'
                             label = 'Editar'
-                            onClick={() => {ediditngRow([row.original])}}
+                            onClick={() => {ediditngRow(row.original)}}
                             table = {table}
+                            className='options-table'
+                        />,
+                        <MRT_ActionMenuItem
+                            icon={<AddBoxOutlined />}
+                            key="dialog"
+                            label="Undiad de Medida"
+                            onClick={()=> {
+                                sendingUomData(row.original);
+                                openingUom();
+                            }}
+                            table={table}
                             className='options-table'
                         />,
                         <MRT_ActionMenuItem
                             icon={<Delete />}
                             key="delete"
                             label="Descontinuar"
-                            onClick={()=> {descontinueRow([row.original])}}
+                            onClick={()=> {descontinueRow(row.original)}}
                             table={table}
                             className='options-table'
                         />,
@@ -190,16 +228,17 @@ const DataTable = () => {
                 ),
                 muiPaginationProps: 
                     {
-                        color: 'primary',
-                        rowsPerPageOptions: [10,20,30,50],
-                        shape: 'rounded',
-                        variant: 'text'
-                },
+                            color: 'primary',
+                            rowsPerPageOptions: [10,20,30,50],
+                            shape: 'rounded',
+                            variant: 'text'
+                    },
     })
 
     return  (
                 <>
                     <MaterialReactTable table = {table}/>
+                    <DialogUom open={uom} closingDialog={closingUom} skuData={uomData}/>
                 </> 
             )
 }

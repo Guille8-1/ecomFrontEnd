@@ -18,6 +18,8 @@ export default function Inventario() {
     //useState open Diaglos
     const [openSKU, setOpenSku] = React.useState<boolean>(false);
     const [openProducts, setOpenProducts] = React.useState<boolean>(false);
+    
+
         const dialogSkuOpen = () => {
             setOpenSku(true)
         }
@@ -30,6 +32,7 @@ export default function Inventario() {
         const dialogCloseProducts = () => {
             setOpenProducts(false)
         }
+        
     //Table Loaders
     const [loading, setLoading] = React.useState<boolean>(true);
     React.useEffect(() => {
