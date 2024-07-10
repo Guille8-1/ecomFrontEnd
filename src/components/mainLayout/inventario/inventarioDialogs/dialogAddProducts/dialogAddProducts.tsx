@@ -124,7 +124,7 @@ export default function AddProductsDialog (props:addProductsProps) {
                 <DialogActions>
                     <Button style={{backgroundColor: '#84888E'}} variant="contained" onClick={closingDialog}>Cancelar</Button>
                     <Button 
-                        color='success'
+                        color='primary'
                         variant="contained" 
                         onClick={savingData}
                         disabled={button || validateCSV}

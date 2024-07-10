@@ -35,8 +35,8 @@ export default function SkuAddDialog (props: addSkuProps) {
     const clean = ''
     const cleanUpForm = () => {
         const values = document.querySelectorAll('input')
-        values.forEach((values)=>{
-            values.value = clean;
+        values.forEach((value)=>{
+            value.value = clean;
         })
     }
 
@@ -60,11 +60,11 @@ export default function SkuAddDialog (props: addSkuProps) {
                 <Typography variant='h6' sx={{
                     paddingBlock:'8px'
                     }} >
-                    Crear Nuevo SKU
+                    + Nuevo SKU
                 </Typography>
                 
                 <DialogContent dividers>
-                <form action="" onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <Box        
                         sx={{
                                 display: 'flex',
@@ -151,7 +151,6 @@ export default function SkuAddDialog (props: addSkuProps) {
                                 <TextField
                                     label="Proveedor"
                                     type='text'
-
                                     {...register('proveedor')}
                                     error={!!errors.proveedor}
                                     helperText={errors.proveedor?.message}

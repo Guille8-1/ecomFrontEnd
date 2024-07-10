@@ -10,4 +10,6 @@ export interface tableType {
     descripcion:string;
     peso:number;
     fechaExp:string;
+    descontinuado: boolean | string
+    udm:boolean | string
 }

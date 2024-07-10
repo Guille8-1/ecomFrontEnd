@@ -3,6 +3,7 @@ export type ProductType = {
     sku:string;
     upc:number;
     cantidadDisp:number;
+    udm:boolean | string;
     costo:number;
     precio:number;
     proveedor:string;
@@ -10,4 +11,5 @@ export type ProductType = {
     descripcion:string;
     peso:number;
     fechaExp:string;
+    descontinuado:string | boolean;
 }

@@ -24,10 +24,20 @@ export interface exportUom {
     skuName: string
     currentQty: number
     expDate:string
+    proveedor:string
+    costo:number
+    precio:number
 }
 const DataTable = () => {
     const [uom, setOpenUom] = React.useState<boolean>(false);
-    const [uomData, setUomData] = React.useState<exportUom>({skuName:'',currentQty:0,expDate:''})
+    const [uomData, setUomData] = React.useState<exportUom>({
+            skuName:'',
+            currentQty:0,
+            expDate:'',
+            proveedor:'',
+            precio:0,
+            costo:0
+        })
     const openingUom = () => {
         setOpenUom(true)
     }
@@ -55,6 +65,11 @@ const DataTable = () => {
             {
                 accessorKey: 'cantidadDisp',
                 header: 'Cantidad',
+                size: 5
+            },
+            {
+                accessorKey: 'udm',
+                header: 'UDM',
                 size: 5
             },
             {
@@ -94,6 +109,11 @@ const DataTable = () => {
                 header: 'Fecha Exp',
                 size: 150,
             },
+            {
+                accessorKey: 'descontinuado',
+                header: 'Descontinuado',
+                size: 150,
+            },
         ],[],
     );
     const csvConfig = mkConfig({
@@ -105,9 +125,6 @@ const DataTable = () => {
         const csv = generateCsv(csvConfig)(data);
         download(csvConfig)(csv)
     };
-
-    
-    
 
     const rowsSelected:ItemType[] = [];
 
@@ -141,7 +158,10 @@ const DataTable = () => {
             {
                 skuName: itemRow.sku,
                 expDate: itemRow.fechaExp,
-                currentQty: itemRow.cantidadDisp
+                currentQty: itemRow.cantidadDisp,
+                proveedor: itemRow.proveedor,
+                costo: itemRow.costo,
+                precio: itemRow.precio
             }
         )
     }
