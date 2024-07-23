@@ -21,19 +21,9 @@
 }
 
 .tabla-inventario {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-
     padding: 30px;
-    width: 100%;
-    margin: 0 auto;
-
-    text-align: center;
 }
 
 .MuiPaper-root {
-    padding: 10px;    
+    padding: 5px;    
 }

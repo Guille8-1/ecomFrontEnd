@@ -1,5 +1,5 @@
 import * as React from 'react'
-import DataTable from '../tableData/dataTable'
+import DataTable from '../../tableData/dataTable'
 import { Link } from 'react-router-dom'
 import './inventario.css'
 // Imports para los dialogs
@@ -10,8 +10,8 @@ import {
         } from '@mui/material'
 
 //Dialog Imports
-import SkuAddDialog from '../inventarioDialogs/dialogAddSku/addSkuDialog/dialogAddSku'
-import AddProductsDialog from '../inventarioDialogs/dialogAddProducts/dialogAddProducts'
+import SkuAddDialog from '../../inventarioDialogs/dialogAddSku/addSkuDialog/dialogAddSku'
+import AddProductsDialog from '../../inventarioDialogs/dialogAddProducts/dialogAddProducts'
 
 //render function
 export default function Inventario() {
@@ -37,7 +37,7 @@ export default function Inventario() {
     const [loading, setLoading] = React.useState<boolean>(true);
     React.useEffect(() => {
         if(loading){
-            const timeData = setTimeout(()=> setLoading(false), 1)
+            const timeData = setTimeout(()=> setLoading(false), 250)
             return () => clearTimeout(timeData)
         }
     },[loading]);

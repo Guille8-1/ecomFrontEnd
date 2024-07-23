@@ -21,7 +21,6 @@ export default function DialogUom (props:uomType) {
         closingDialog();
     }
 
-    
 
     const currentQty = skuData?.currentQty;
     const skuName = skuData?.skuName;
@@ -51,7 +50,7 @@ export default function DialogUom (props:uomType) {
                     + Unidad de Medida SKU: {skuName}
                 </Typography>
                 <DialogContent dividers>
-                    <form action="" onSubmit={handleSubmit(onSubmit)} style={{marginTop:'1px'}}>
+                    <form action="" style={{marginTop:'1px'}}>
                         <Box
                             sx={{
                                 display: 'flex',

@@ -1,3 +1,4 @@
-div {
-    background-color: red;
+* {
+    position: relative;
+    z-index: 0;
 }
