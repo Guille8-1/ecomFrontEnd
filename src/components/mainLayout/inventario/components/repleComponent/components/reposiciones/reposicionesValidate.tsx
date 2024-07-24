@@ -9,6 +9,12 @@ const validateRepo: Resolver<repoType> = async (values) => {
             message:'Fecha Necesaria'
         }
     }
+    if(!values.proveedor){
+        errors.nuevaCantidad = {
+            type:'required',
+            message:'proveedor requerido'
+        }
+    }
     return {
         values: Object.keys(errors).length === 0 ? values : {},
         errors

@@ -83,10 +83,12 @@ export default function AddProductsDialog (props:addProductsProps) {
                                 >No Archivo Seleccionado</p>
                             }
                             <Button
-                                component='label'
                                 style={{
-                                    width:'138px'
+                                    width:'138px',
+                                    position:'relative',
+                                    zIndex:'1'
                                 }}
+                                component='label'
                                 variant="contained">
                                     <span>Archivo .CSV</span>
                                 <input 
