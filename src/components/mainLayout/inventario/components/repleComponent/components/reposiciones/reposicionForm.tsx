@@ -12,28 +12,24 @@ import { repoType } from './resposicionesType';
 import validateRepo from './reposicionesValidate';
 
 export default function ReposicionesForm () {
-    
+
     const [select, setSelect] = React.useState<Dayjs|null>(dayjs());
     
     //form functions
     const {handleSubmit,register, formState:{errors}} = useForm<repoType>({resolver:validateRepo})    
 
-
     //form functions
-    
     const onSubmit:SubmitHandler<repoType> = (repoData) => {
-        const pickedDate = select?.format('MM/DD/YYYY')
+        const pickedDate = select?.format('MM/DD/YYYY')        
         repoData.date = pickedDate;
 
-        if(repoData.date === 'Invalid Date'){
+        if(repoData.date === 'Invalid Date' || repoData.date === undefined ){
             alert('Fecha No Valida')
             return
         }
 
-        console.info(repoData);
-        console.info(typeof repoData.proveedor);
+        console.info('Reposition Data Submitted',repoData);
     }
-
 
     return(
         <>
@@ -52,8 +48,8 @@ export default function ReposicionesForm () {
                                                         gap:'10px'
                                                     }}>
                                             <TextField
-                                                label='Cantidad De SKU'
-                                                type='number'
+                                                label='Proveedor'
+                                                type='text'
                                                 {...register('proveedor')}
                                                 error={!!errors.proveedor}
                                                 helperText={errors.proveedor?.message}
@@ -78,7 +74,11 @@ export default function ReposicionesForm () {
                         </form>
                 </Box>
                 <div style={{paddingTop:'20px'}}>
-                    <Button color='primary' variant='contained' onClick={handleSubmit(onSubmit)}>
+                    <Button 
+                        color='primary' 
+                        variant='contained' 
+                        onClick={handleSubmit(onSubmit)}>
+                            
                         Registrar
                     </Button>
                 </div>

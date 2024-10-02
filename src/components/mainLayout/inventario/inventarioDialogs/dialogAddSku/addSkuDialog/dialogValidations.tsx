@@ -89,7 +89,7 @@ const validateResolver: Resolver<addSkuForm> = async (values) => {
       if(!/^[a-zA-Z\s]*$/.test(values.etiquetas)){
           errors.etiquetas = {
             type:'pattern',
-            message:'Sin caracteres especiales'
+            message:'No caracteres especiales'
           }
       }
     return {

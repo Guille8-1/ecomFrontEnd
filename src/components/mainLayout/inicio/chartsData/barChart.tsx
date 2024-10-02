@@ -1,5 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+
 import { Chart as ChartJS,
     CategoryScale,
     LinearScale,
@@ -19,7 +20,7 @@ ChartJS.register(
     Legend
 );
 
-const BartChart: React.FC = () => {
+const BarChart: React.FC = () => {
     const data:ChartData<'bar'> = {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
         datasets: [
@@ -37,24 +38,26 @@ const BartChart: React.FC = () => {
     }
     const options:ChartOptions<'bar'> = {
         responsive: true,
+        maintainAspectRatio: false,
+        
         plugins: {
             legend: {
                 display: true,
                 position: 'bottom',
             },
             title: {
+
                 padding: {
                     bottom: 10,
                     top: 10,
                 },
-                display: true,
                 text: 'Ventas Mensuales',
                 position: 'top',
-                align: 'center',
+
             }
         },
     }
     return <Bar data={data} options={options} />
 }
 
-export default BartChart
+export default BarChart
